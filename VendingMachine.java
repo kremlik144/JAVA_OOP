@@ -1,5 +1,5 @@
 
 public interface VendingMachine {
     
-    void getProduct();
+    public String getProduct();
 }

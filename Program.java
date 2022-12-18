@@ -22,16 +22,17 @@ public class Program
         HotDrinksVendingMachine machine = new HotDrinksVendingMachine();
 
 
-        machine.addDrink(new HotDrink("tea", "dark", 0.5, 40, 25));
-        machine.addDrink(new HotDrink("tea", "orange", 0.5, 50, 40));
-        machine.addDrink(new HotDrink("coffee", "dark", 0.45, 60, 55));
-        machine.addDrink(new HotDrink("mulled wine (non-alcoholic)", "red", 0.3, 120, 45));
-        machine.addDrink(new HotDrink("mulled wine (non-alcoholic)", "dark", 0.3, 125, 45));
+        machine.addDrink(new HotDrink("tea", "dark", 500, 40, 25));
+        machine.addDrink(new HotDrink("tea", "orange", 500, 50, 40));
+        machine.addDrink(new HotDrink("coffee", "dark", 450, 60, 55));
+        machine.addDrink(new HotDrink("mulled wine (non-alcoholic)", "red", 300, 120, 45));
+        machine.addDrink(new HotDrink("mulled wine (non-alcoholic)", "dark", 300, 125, 45));
 
 
 
 
         System.out.println(machine.toString());
+        System.out.println(machine.getProduct());
         
         
         

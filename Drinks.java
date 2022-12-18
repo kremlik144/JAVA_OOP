@@ -3,10 +3,10 @@ public class Drinks
 {
     private String name;
     private String color;
-    private double volume;
+    private int volume;
     private int price;
 
-    public Drinks(String name, String color, double volume, int price) {
+    public Drinks(String name, String color, int volume, int price) {
         this.name = name;
         this.color = color;
         this.volume = volume;
