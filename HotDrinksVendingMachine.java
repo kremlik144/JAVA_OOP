@@ -1,29 +1,55 @@
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
-public class HotDrinksVendingMachine implements VendingMachine{
+public class HotDrinksVendingMachine implements VendingMachine
+{
 
-    private List<HotDrink> hotDrinksProduct = new LinkedList<>();
-    private int wallet;
+    private Map<Integer, HotDrink> products = new TreeMap<>();
+    private int wallet = 0;
+    private int productId = 0;
 
 
     public void addDrink(HotDrink drink)
     {
-        this.hotDrinksProduct.add(drink);
+        this.products.put(productId, drink);
+        productId++;
     }
 
     private String getProduct(String name, int volume, int temperature) 
-    {
-        // TODO Auto-generated method stub
-        return "work";
+    {   
+        boolean flagPay = false;
+
+        for(HotDrink product: products.values())
+        {
+            if(product.getName().equals(name))
+            {
+                if(product.getVolume() == volume)
+                {
+                    if(product.getTemperature() == temperature)
+                    {
+                        wallet += product.getPrice();
+                        System.out.printf("Thank you for your purchase %s. Deducted from your account %d$\n", product.getName(), product.getPrice());
+                        flagPay = true;
+                    }
+                }
+            }
+            else continue;   
+        }
+        if(flagPay) return "\tGoodbye :)";
+        else return "\tThis item is not in stock :(";
     }
 
     
     @Override
     public String toString() {
-        return "Hot Drinks Product: " + hotDrinksProduct;
+        System.out.println("Hot Drinks Product: ");        
+        for(HotDrink prod: products.values())
+        {
+            System.out.println("\t" + prod);
+        }
+        return "End of range";
     }
 
     @Override
@@ -38,10 +64,12 @@ public class HotDrinksVendingMachine implements VendingMachine{
             System.out.print("Enter the VOLUME of the desired drink(ml): ");
             String volume = scan.nextLine();
             int vol = Integer.parseInt(volume);
+            
 
             System.out.print("Enter the TEMPERATURE of the desired drink(C): ");
             String temperature = scan.nextLine();
             int temper= Integer.parseInt(temperature);
+
             String result = getProduct(name, vol, temper);
             return result;
         } 
@@ -53,12 +81,7 @@ public class HotDrinksVendingMachine implements VendingMachine{
         finally
         {
             scan.close();
-        }
-               
+        }         
     }
 
-    
-
-   
-    
 }

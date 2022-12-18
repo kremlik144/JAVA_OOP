@@ -8,16 +8,13 @@ public class HotDrink extends Drinks
         this.temperature = temperature;
     }
 
+    public int getTemperature() {
+        return temperature;
+    }
 
     @Override
     public String toString() {
-        return super.toString() + ", temperature= " + temperature;
+        return super.toString() + ", temperature = " + temperature;
     }
-
-    
-
-    
-
-    
-    
+        
 }

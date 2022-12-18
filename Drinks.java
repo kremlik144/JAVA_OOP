@@ -13,11 +13,22 @@ public class Drinks
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "\n\tname= " + name + ", color= " + color + ", volume= " + volume + ", price= " + price;
+    
+    public String getName() {
+        return name;
     }
 
-    
-        
+    public int getVolume() {
+        return volume;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "name = " + name + ", color = " + color + ", volume = " + volume + ", price = " + price;
+    }
+          
 }
